@@ -16,6 +16,8 @@ import java.sql.SQLException;
  */
 public class UsuariosDAO extends GenericDAO {
     
+    // DAO Secretária
+    
     public Integer addSecretaria(Secretaria secretaria) throws SQLException
     {
         String query = "INSERT INTO secretaria(nome_func, cpf, rg, telefone, endereco, sexo, senha_acesso, lvl_key) VALUES (?,?,?,?,?,?,?,?)";
@@ -45,7 +47,7 @@ public class UsuariosDAO extends GenericDAO {
       }
     
       
-      /////////////
+      // DAO Admin
       
       
       public Integer addAdmin(Admin admin) throws SQLException
@@ -72,7 +74,7 @@ public class UsuariosDAO extends GenericDAO {
     
     
     
-    //////////
+    //DAO Médicos
     
     public Integer addMedicos(Medicos medicos ) throws SQLException
     {
