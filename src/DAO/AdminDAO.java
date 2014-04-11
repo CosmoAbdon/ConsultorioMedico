@@ -10,11 +10,31 @@ package DAO;
  */
 import entidades.Admin;
 import DAO.GenericDAO;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminDAO extends GenericDAO{
     
-
+    
+    public boolean logarAdmin(String login, String senha) throws SQLException{
+    
+        boolean toReturn = false;
+        ResultSet rs; 
+        rs = executeQuery("select * from admin");
+        
+        while (rs.next()) {
+        
+            if (rs.getString("senha").equals(senha) && rs.getString("login").equals(login)) {
+            
+                toReturn = true;
+                return true;
+            } else {
+                toReturn = false;
+            }
+        }
+        return toReturn;
+    }
+    
     public Integer addAdmin(Admin admin) throws SQLException
     {
         String query = "INSERT INTO admin(nome, login, senha, lvl_key) VALUES (?,?,?,?)";

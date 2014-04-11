@@ -107,17 +107,21 @@ public class TelaLoginPrincipal extends javax.swing.JFrame {
 
     private void jb_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_adminActionPerformed
         // TODO add your handling code here:
+        hide();
         new LoginActivityAdmin().show();
     }//GEN-LAST:event_jb_adminActionPerformed
 
     private void jb_medActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_medActionPerformed
         // TODO add your handling code here:
+        hide();
         new LoginActivityMedico().show();
     }//GEN-LAST:event_jb_medActionPerformed
 
     private void jb_secActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_secActionPerformed
         // TODO add your handling code here:
+        hide();
         new LoginActivitySecretaria().show();
+        
     }//GEN-LAST:event_jb_secActionPerformed
 
     /**

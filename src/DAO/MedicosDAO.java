@@ -12,9 +12,29 @@ package DAO;
 import entidades.Medicos;
 import java.sql.SQLException;
 import DAO.GenericDAO;
+import java.sql.ResultSet;
 
 public class MedicosDAO extends GenericDAO
 {
+    
+    public boolean logarMedicos(String login, String senha) throws SQLException{
+    
+        boolean toReturn = false;
+        ResultSet rs; 
+        rs = executeQuery("select * from medicos");
+        
+        while (rs.next()) {
+        
+            if (rs.getString("senha_acesso").equals(senha) && rs.getString("crm").equals(login)) {
+            
+                toReturn = true;
+                return true;
+            } else {
+                toReturn = false;
+            }
+        }
+        return toReturn;
+    }
     
     public Integer addMedicos(Medicos medicos ) throws SQLException
     {

@@ -8,8 +8,18 @@ package frames;
  *
  * @author zEveerY
  */
+import DAO.AdminDAO;
+import entidades.Admin;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class LoginActivityAdmin extends javax.swing.JFrame {
 
+AdminDAO adminDAO = new AdminDAO();
+Admin admin = new Admin();
+
+boolean a;
+    
     /**
      * Creates new form LoginActivityMedico
      */
@@ -69,6 +79,11 @@ public class LoginActivityAdmin extends javax.swing.JFrame {
 
         jb_entrar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jb_entrar.setText("Entrar no Sistema");
+        jb_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_entrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jb_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 233, -1, -1));
 
         jb_limpar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -113,6 +128,22 @@ public class LoginActivityAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jb_limparActionPerformed
+
+    private void jb_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_entrarActionPerformed
+        // TODO add your handling code here:
+        
+        adminDAO.getConnection();
+        try {
+            if(adminDAO.logarAdmin(jtf_Login.getText(), jtf_Senha.getText()) == true)
+            {
+                hide();
+            new TelaAdministrador().show();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginActivitySecretaria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jb_entrarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,12 +4,23 @@
  */
 package frames;
 
+import DAO.MedicosDAO;
+import entidades.Medicos;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author zEveerY
  */
 public class LoginActivityMedico extends javax.swing.JFrame {
 
+Medicos medicos = new Medicos();
+MedicosDAO medicosDAO = new MedicosDAO();
+
+boolean a;
+    
     /**
      * Creates new form LoginActivityMedico
      */
@@ -49,7 +60,7 @@ public class LoginActivityMedico extends javax.swing.JFrame {
 
         jtf_Login.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jtf_Login.setForeground(new java.awt.Color(204, 204, 204));
-        jtf_Login.setText("Digite o seu login");
+        jtf_Login.setText("Digite o seu CRM");
         jtf_Login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtf_LoginMouseClicked(evt);
@@ -69,6 +80,11 @@ public class LoginActivityMedico extends javax.swing.JFrame {
 
         jb_entrar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jb_entrar.setText("Entrar no Sistema");
+        jb_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_entrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jb_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 233, -1, -1));
 
         jb_limpar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -113,6 +129,22 @@ public class LoginActivityMedico extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jb_limparActionPerformed
+
+    private void jb_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_entrarActionPerformed
+        // TODO add your handling code here:
+        
+        medicosDAO.getConnection();
+        try {
+            if(medicosDAO.logarMedicos(jtf_Login.getText(), jtf_Senha.getText()) == true)
+            {
+                hide();
+            new TelaMedico().show();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginActivitySecretaria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jb_entrarActionPerformed
 
     /**
      * @param args the command line arguments

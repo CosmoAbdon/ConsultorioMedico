@@ -14,6 +14,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SecretariaDAO extends GenericDAO{
+
+    public boolean logarSecretaria(String login, String senha) throws SQLException{
+    
+        boolean toReturn = false;
+        ResultSet rs; 
+        rs = executeQuery("select * from secretaria");
+        
+        while (rs.next()) {
+        
+            if (rs.getString("senha_acesso").equals(senha) && rs.getString("rg").equals(login)) {
+            
+                toReturn = true;
+                return true;
+            } else {
+                toReturn = false;
+            }
+        }
+        return toReturn;
+    }
+    
     
     public Integer addSecretaria(Secretaria secretaria) throws SQLException
     {

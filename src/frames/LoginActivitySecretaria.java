@@ -10,9 +10,19 @@ package frames;
  */
 
 import DAO.SecretariaDAO;
+import entidades.Secretaria;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class LoginActivitySecretaria extends javax.swing.JFrame {
 
+Secretaria secretaria = new Secretaria();
+SecretariaDAO secretariaDAO = new SecretariaDAO();
+
+boolean a;
+    
     /**
      * Creates new form LoginActivityMedico
      */
@@ -125,6 +135,17 @@ public class LoginActivitySecretaria extends javax.swing.JFrame {
     private void jb_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_entrarActionPerformed
         // TODO add your handling code here:
 
+        secretariaDAO.getConnection();
+        try {
+            if(secretariaDAO.logarSecretaria(jtf_Login.getText(), jtf_Senha.getText()) == true)
+            {
+                hide();
+            new TelaSecretaria().show();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginActivitySecretaria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jb_entrarActionPerformed
 
     /**
