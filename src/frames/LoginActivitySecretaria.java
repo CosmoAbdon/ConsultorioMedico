@@ -42,13 +42,15 @@ boolean a;
         jl_Login = new javax.swing.JLabel();
         jl_Senha = new javax.swing.JLabel();
         jtf_Login = new javax.swing.JTextField();
-        jtf_Senha = new javax.swing.JTextField();
         jb_entrar = new javax.swing.JButton();
         jb_limpar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jb_stop = new javax.swing.JButton();
+        jtf_Senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login de Secretárias");
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -68,17 +70,12 @@ boolean a;
                 jtf_LoginMouseClicked(evt);
             }
         });
-        getContentPane().add(jtf_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 60, 130, -1));
-
-        jtf_Senha.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jtf_Senha.setForeground(new java.awt.Color(204, 204, 204));
-        jtf_Senha.setText("Digite a sua senha");
-        jtf_Senha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtf_SenhaMouseClicked(evt);
+        jtf_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_LoginActionPerformed(evt);
             }
         });
-        getContentPane().add(jtf_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        getContentPane().add(jtf_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 60, 130, -1));
 
         jb_entrar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jb_entrar.setText("Entrar no Sistema");
@@ -113,8 +110,23 @@ boolean a;
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 30));
 
+        jb_stop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/stop.png"))); // NOI18N
+        jb_stop.setToolTipText("Sair");
+        jb_stop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_stopActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jb_stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
+
+        jtf_Senha.setText("Senha");
+        jtf_Senha.setToolTipText("Digite a sua senha");
+        jtf_Senha.setMinimumSize(new java.awt.Dimension(6, 25));
+        jtf_Senha.setPreferredSize(new java.awt.Dimension(122, 25));
+        getContentPane().add(jtf_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 130, 130, -1));
+
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-487)/2, (screenSize.height-339)/2, 487, 339);
+        setBounds((screenSize.width-471)/2, (screenSize.height-300)/2, 471, 300);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtf_LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtf_LoginMouseClicked
@@ -122,14 +134,10 @@ boolean a;
         jtf_Login.setText("");
     }//GEN-LAST:event_jtf_LoginMouseClicked
 
-    private void jtf_SenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtf_SenhaMouseClicked
-        // TODO add your handling code here:
-        jtf_Senha.setText("");
-    }//GEN-LAST:event_jtf_SenhaMouseClicked
-
     private void jb_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_limparActionPerformed
         // TODO add your handling code here:
-        
+        jtf_Login.setText("");
+        jtf_Senha.setText("");
     }//GEN-LAST:event_jb_limparActionPerformed
 
     private void jb_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_entrarActionPerformed
@@ -147,6 +155,15 @@ boolean a;
         }
         
     }//GEN-LAST:event_jb_entrarActionPerformed
+
+    private void jb_stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_stopActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jb_stopActionPerformed
+
+    private void jtf_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_LoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_LoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,9 +203,10 @@ boolean a;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jb_entrar;
     private javax.swing.JButton jb_limpar;
+    private javax.swing.JButton jb_stop;
     private javax.swing.JLabel jl_Login;
     private javax.swing.JLabel jl_Senha;
     private javax.swing.JTextField jtf_Login;
-    private javax.swing.JTextField jtf_Senha;
+    private javax.swing.JPasswordField jtf_Senha;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,10 +26,8 @@ public class SecretariaDAO extends GenericDAO{
             if (rs.getString("senha_acesso").equals(senha) && rs.getString("rg").equals(login)) {
             
                 toReturn = true;
-                return true;
-            } else {
-                toReturn = false;
-            }
+                //return true;
+            } 
         }
         return toReturn;
     }
