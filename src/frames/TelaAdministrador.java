@@ -8,6 +8,8 @@ import entidades.Secretaria;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import tools.Data;
 
 /**
  *
@@ -16,11 +18,18 @@ import java.util.logging.Logger;
 public class TelaAdministrador extends javax.swing.JFrame {
 Secretaria secretaria = new Secretaria();
 SecretariaDAO secretariaDAO = new SecretariaDAO();
+
+public boolean xd = false;
     /**
      * Creates new form TelaAdministrador
      */
     public TelaAdministrador() {
         initComponents();
+        
+        Data mostra_data = new Data();
+        mostra_data.le_data();
+        jl_data.setText("Estamos no mês de "+mostra_data.mes+", dia : "+mostra_data.dia+" do ano de "+mostra_data.ano);
+        
     }
 
     /**
@@ -32,41 +41,46 @@ SecretariaDAO secretariaDAO = new SecretariaDAO();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jtf_nome = new javax.swing.JTextField();
-        jtf_cpf = new javax.swing.JTextField();
-        jtf_rg = new javax.swing.JTextField();
-        jtf_telefone = new javax.swing.JTextField();
-        jtf_endereco = new javax.swing.JTextField();
-        jtf_sexo = new javax.swing.JTextField();
-        jtf_senha = new javax.swing.JTextField();
-        jb_entrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jb_cadInfoCli = new javax.swing.JButton();
+        jb_cadSec = new javax.swing.JButton();
+        jl_data = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 255));
 
-        jtf_nome.setText("Nome");
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
-        jtf_cpf.setText("cpf");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel1.setText("Área do Administrador");
 
-        jtf_rg.setText("rg");
-
-        jtf_telefone.setText("telefone");
-
-        jtf_endereco.setText("endereco");
-
-        jtf_sexo.setText("sexo");
-        jtf_sexo.addActionListener(new java.awt.event.ActionListener() {
+        jb_cadInfoCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/clinical_data.png"))); // NOI18N
+        jb_cadInfoCli.setToolTipText("Cadastrar Dados Clínicos");
+        jb_cadInfoCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtf_sexoActionPerformed(evt);
+                jb_cadInfoCliActionPerformed(evt);
             }
         });
 
-        jtf_senha.setText("senha");
-
-        jb_entrar.setText("Entrar");
-        jb_entrar.addActionListener(new java.awt.event.ActionListener() {
+        jb_cadSec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/secretary.png"))); // NOI18N
+        jb_cadSec.setToolTipText("Cadastrar Secretária");
+        jb_cadSec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_entrarActionPerformed(evt);
+                jb_cadSecActionPerformed(evt);
+            }
+        });
+
+        jl_data.setText("data");
+        jl_data.setAutoscrolls(true);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/stop.png"))); // NOI18N
+        jButton3.setToolTipText("Sair do Sistema");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -74,71 +88,91 @@ SecretariaDAO secretariaDAO = new SecretariaDAO();
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(78, 78, 78)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jb_entrar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(jtf_nome)
-                        .add(jtf_cpf)
-                        .add(jtf_rg)
-                        .add(jtf_telefone, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)))
-                .add(119, 119, 119)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jtf_endereco, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                    .add(jtf_sexo)
-                    .add(jtf_senha))
-                .addContainerGap(342, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(173, 173, 173)
+                        .add(jl_data)
+                        .add(0, 0, Short.MAX_VALUE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(46, 46, 46)
+                        .add(jb_cadInfoCli, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 141, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(jb_cadSec, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 139, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .add(36, 36, 36))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(181, Short.MAX_VALUE)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jLabel1)
+                        .add(178, 178, 178))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(268, 268, 268))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(41, 41, 41)
-                .add(jb_entrar)
-                .add(195, 195, 195)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jtf_nome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jtf_endereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jtf_cpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jtf_sexo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(29, 29, 29)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jtf_rg, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jtf_senha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(jtf_telefone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 51, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jLabel1)
+                .add(51, 51, 51)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jb_cadSec, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jb_cadInfoCli, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(30, 30, 30)
+                .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 125, Short.MAX_VALUE)
+                .add(jl_data)
+                .addContainerGap())
+        );
+
+        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtf_sexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_sexoActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtf_sexoActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jb_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_entrarActionPerformed
-        try {
-            // TODO add your handling code here:
+    private void jb_cadSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cadSecActionPerformed
+        // TODO add your handling code here:
+        //valida(xd);
+        new AdminCadastrarSecretariasModal(this, true).show();
+        
+    }//GEN-LAST:event_jb_cadSecActionPerformed
 
-            login();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jb_entrarActionPerformed
+    private void jb_cadInfoCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cadInfoCliActionPerformed
+        // TODO add your handling code here:
+        new AdminCadastrarInfoCliModal(this, true).show();
+    }//GEN-LAST:event_jb_cadInfoCliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,32 +209,27 @@ SecretariaDAO secretariaDAO = new SecretariaDAO();
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jb_entrar;
-    private javax.swing.JTextField jtf_cpf;
-    private javax.swing.JTextField jtf_endereco;
-    private javax.swing.JTextField jtf_nome;
-    private javax.swing.JTextField jtf_rg;
-    private javax.swing.JTextField jtf_senha;
-    private javax.swing.JTextField jtf_sexo;
-    private javax.swing.JTextField jtf_telefone;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton jb_cadInfoCli;
+    private javax.swing.JButton jb_cadSec;
+    private javax.swing.JLabel jl_data;
     // End of variables declaration//GEN-END:variables
 
-    private void login() throws SQLException {
-       System.out.println("2 vez :   "+secretaria.getRg() +" , "+secretaria.getSenha_acesso()+" /n");
+    public boolean valida(boolean valor) {
         
-        secretaria.setNome_func(jtf_nome.getText());
-        secretaria.setCpf(jtf_cpf.getText());
-        secretaria.setRg(jtf_rg.getText());
-        secretaria.setTelefone(jtf_telefone.getText());
-        secretaria.setEndereco(jtf_endereco.getText());
-        secretaria.setSexo(jtf_sexo.getText());
-        secretaria.setSenha_acesso(jtf_senha.getText());
+        if(xd == false)
+        {
+            new AdminCadastrarSecretariasModal(this, true).show();
+            return xd = true;
+        }else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Uma instancia do processo já foi aberta");
+        }
         
-        
-        System.out.println("3 vez :   "+secretaria.getRg() +" , "+secretaria.getSenha_acesso()+" /n");
-        
-        secretariaDAO.getConnection();
-        secretariaDAO.addSecretaria(secretaria);
+        return xd;
     }
+
 }

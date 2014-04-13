@@ -12,8 +12,28 @@ package DAO;
 import entidades.InfoCli;
 import java.sql.SQLException;
 import DAO.GenericDAO;
+import java.sql.ResultSet;
 
 public class InfoCliDAO extends GenericDAO{
+    
+    
+    public boolean ValidaInfoCli() throws SQLException{
+    
+        boolean toReturn = false;
+        ResultSet rs; 
+        rs = executeQuery("select * from info_cli");
+        
+        while (rs.next()) {
+        
+            if (rs.getInt("id") == 1) {
+            
+                toReturn = true;
+                //return true;
+            } 
+        }
+        return toReturn;
+    }
+    
     
     public Integer addInfoCli(InfoCli infocli ) throws SQLException
     {

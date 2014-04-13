@@ -13,6 +13,7 @@ import entidades.Admin;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 public class LoginActivityAdmin extends javax.swing.JFrame {
 
 AdminDAO adminDAO = new AdminDAO();
@@ -60,7 +61,7 @@ boolean a;
         getContentPane().add(jl_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         jtf_Login.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jtf_Login.setForeground(new java.awt.Color(204, 204, 204));
+        jtf_Login.setForeground(new java.awt.Color(153, 153, 153));
         jtf_Login.setText("Digite o seu login");
         jtf_Login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,9 +112,15 @@ boolean a;
         });
         getContentPane().add(jb_stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
+        jtf_Senha.setForeground(new java.awt.Color(153, 153, 153));
         jtf_Senha.setText("Senha");
         jtf_Senha.setToolTipText("Digite a sua senha");
         jtf_Senha.setPreferredSize(new java.awt.Dimension(122, 25));
+        jtf_Senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_SenhaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jtf_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 130, 130, -1));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -141,6 +148,9 @@ boolean a;
             {
                 hide();
             new TelaAdministrador().show();
+            }else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha inválidos");
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginActivitySecretaria.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,6 +162,11 @@ boolean a;
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jb_stopActionPerformed
+
+    private void jtf_SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_SenhaActionPerformed
+        // TODO add your handling code here:
+        jtf_Senha.setText("");
+    }//GEN-LAST:event_jtf_SenhaActionPerformed
 
     /**
      * @param args the command line arguments
