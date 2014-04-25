@@ -116,6 +116,11 @@ boolean a;
         jtf_Senha.setText("Senha");
         jtf_Senha.setToolTipText("Digite a sua senha");
         jtf_Senha.setPreferredSize(new java.awt.Dimension(122, 25));
+        jtf_Senha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtf_SenhaMouseClicked(evt);
+            }
+        });
         jtf_Senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtf_SenhaActionPerformed(evt);
@@ -167,6 +172,11 @@ boolean a;
         // TODO add your handling code here:
         jtf_Senha.setText("");
     }//GEN-LAST:event_jtf_SenhaActionPerformed
+
+    private void jtf_SenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtf_SenhaMouseClicked
+        // TODO add your handling code here:
+        jtf_Senha.setText("");
+    }//GEN-LAST:event_jtf_SenhaMouseClicked
 
     /**
      * @param args the command line arguments

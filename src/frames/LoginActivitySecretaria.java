@@ -119,10 +119,16 @@ boolean a;
         });
         getContentPane().add(jb_stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
+        jtf_Senha.setForeground(new java.awt.Color(204, 204, 204));
         jtf_Senha.setText("Senha");
         jtf_Senha.setToolTipText("Digite a sua senha");
         jtf_Senha.setMinimumSize(new java.awt.Dimension(6, 25));
         jtf_Senha.setPreferredSize(new java.awt.Dimension(122, 25));
+        jtf_Senha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtf_SenhaMouseClicked(evt);
+            }
+        });
         getContentPane().add(jtf_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 130, 130, -1));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -164,6 +170,11 @@ boolean a;
     private void jtf_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_LoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtf_LoginActionPerformed
+
+    private void jtf_SenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtf_SenhaMouseClicked
+        // TODO add your handling code here:
+        jtf_Senha.setText("");
+    }//GEN-LAST:event_jtf_SenhaMouseClicked
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,8 @@
  */
 package entidades;
 
+import frames.SwingColumn;
+
 /**
  *
  * @author zEveerY
@@ -12,9 +14,12 @@ public class Medicos {
     // Banco de Dados Modificado
     // De : 'int crm' Para : 'varchar crm'
     private Integer id;
+    @SwingColumn (description="CRM")
     private String crm;
+    @SwingColumn (description="NOME")
     private String nome_medico;
     private String cpf;
+    @SwingColumn (description="RG")
     private String rg;
     private String telefone;
     private String sexo;

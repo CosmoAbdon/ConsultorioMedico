@@ -284,7 +284,7 @@ InfoCliDAO infoCliDAO = new InfoCliDAO();
         infoCli.setTelefone(jtf_telefone.getText());
         infoCli.setId(1);
         
-        infoCliDAO.getConnection();
+        //infoCliDAO.getConnection();
         infoCliDAO.updateInfoCli(infoCli);
         
     }

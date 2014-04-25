@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package frames;
-
 /**
  *
  * @author zEveerY
@@ -15,6 +14,7 @@ public class TelaLoginPrincipal extends javax.swing.JFrame {
      */
     public TelaLoginPrincipal() {
         initComponents();
+        
     }
 
     /**
