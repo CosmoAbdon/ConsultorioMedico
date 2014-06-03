@@ -4,6 +4,8 @@
  */
 package frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author zEveerY
@@ -31,7 +33,6 @@ public class TelaSecretaria extends javax.swing.JFrame {
         jb_gerConvenios = new javax.swing.JButton();
         jb_gerConsultas = new javax.swing.JButton();
         f_separador = new javax.swing.Box.Filler(new java.awt.Dimension(0, 50), new java.awt.Dimension(0, 50), new java.awt.Dimension(32767, 50));
-        jb_gerConsultas1 = new javax.swing.JButton();
         jb_gerMedicos = new javax.swing.JButton();
         jb_gerConsultas2 = new javax.swing.JButton();
         jb_gerConsultas3 = new javax.swing.JButton();
@@ -40,6 +41,11 @@ public class TelaSecretaria extends javax.swing.JFrame {
         setResizable(false);
 
         jb_gerPacientes.setText("Gerenciar Pacientes");
+        jb_gerPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_gerPacientesActionPerformed(evt);
+            }
+        });
 
         jb_gerConvenios.setText("Gerenciar Convênios");
         jb_gerConvenios.addActionListener(new java.awt.event.ActionListener() {
@@ -49,11 +55,14 @@ public class TelaSecretaria extends javax.swing.JFrame {
         });
 
         jb_gerConsultas.setText("Gerenciar Consultas");
+        jb_gerConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_gerConsultasActionPerformed(evt);
+            }
+        });
 
         f_separador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         f_separador.setForeground(new java.awt.Color(153, 153, 153));
-
-        jb_gerConsultas1.setText("Gerenciar Consultas");
 
         jb_gerMedicos.setText("Gerenciar Médicos");
         jb_gerMedicos.addActionListener(new java.awt.event.ActionListener() {
@@ -63,8 +72,18 @@ public class TelaSecretaria extends javax.swing.JFrame {
         });
 
         jb_gerConsultas2.setText("Agenda Médicas");
+        jb_gerConsultas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_gerConsultas2ActionPerformed(evt);
+            }
+        });
 
         jb_gerConsultas3.setText("Emitir Relatórios");
+        jb_gerConsultas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_gerConsultas3ActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,15 +94,14 @@ public class TelaSecretaria extends javax.swing.JFrame {
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(jb_gerConvenios, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                     .add(jb_gerPacientes, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jb_gerConsultas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jb_gerMedicos, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .add(38, 38, 38)
                 .add(f_separador, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 35, Short.MAX_VALUE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jb_gerConsultas1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jb_gerConsultas2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jb_gerConsultas3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jb_gerConsultas3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jb_gerConsultas, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,17 +113,15 @@ public class TelaSecretaria extends javax.swing.JFrame {
                 .add(jb_gerPacientes)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 46, Short.MAX_VALUE)
                 .add(jb_gerConvenios)
-                .add(42, 42, 42)
-                .add(jb_gerConsultas)
-                .add(62, 62, 62))
+                .add(127, 127, 127))
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(f_separador, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
-                .add(71, 71, 71)
-                .add(jb_gerConsultas1)
-                .add(41, 41, 41)
+                .add(72, 72, 72)
+                .add(jb_gerConsultas)
+                .add(36, 36, 36)
                 .add(jb_gerConsultas2)
                 .add(44, 44, 44)
                 .add(jb_gerConsultas3)
@@ -129,12 +145,33 @@ public class TelaSecretaria extends javax.swing.JFrame {
 
     private void jb_gerConveniosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gerConveniosActionPerformed
         // TODO add your handling code here:
+        new SecConvenios().show();
     }//GEN-LAST:event_jb_gerConveniosActionPerformed
 
     private void jb_gerMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gerMedicosActionPerformed
         // TODO add your handling code here:
         new SecMedicos().show();
     }//GEN-LAST:event_jb_gerMedicosActionPerformed
+
+    private void jb_gerConsultas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gerConsultas3ActionPerformed
+        // TODO add your handling code here:
+        new SecEmiteRelatorios().show();
+    }//GEN-LAST:event_jb_gerConsultas3ActionPerformed
+
+    private void jb_gerPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gerPacientesActionPerformed
+        // TODO add your handling code here:
+        new SecPacientes().show();
+    }//GEN-LAST:event_jb_gerPacientesActionPerformed
+
+    private void jb_gerConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gerConsultasActionPerformed
+        // TODO add your handling code here:
+        new SecConsultas().show();
+    }//GEN-LAST:event_jb_gerConsultasActionPerformed
+
+    private void jb_gerConsultas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gerConsultas2ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Não Concluido");
+    }//GEN-LAST:event_jb_gerConsultas2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,7 +211,6 @@ public class TelaSecretaria extends javax.swing.JFrame {
     private javax.swing.Box.Filler f_separador;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jb_gerConsultas;
-    private javax.swing.JButton jb_gerConsultas1;
     private javax.swing.JButton jb_gerConsultas2;
     private javax.swing.JButton jb_gerConsultas3;
     private javax.swing.JButton jb_gerConvenios;

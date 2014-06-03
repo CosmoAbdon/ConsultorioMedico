@@ -174,10 +174,10 @@ InfoCliDAO infoCliDAO = new InfoCliDAO();
 
     private void jb_clear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clear2ActionPerformed
         // TODO add your handling code here:
-        jtf_nome.setText("");
-        jtf_cnpj.setText("");
-        jtf_endereco.setText("");
-        jtf_telefone.setText("");
+        jtf_nome2.setText("");
+        jtf_cnpj2.setText("");
+        jtf_endereco2.setText("");
+        jtf_telefone2.setText("");
         Component rootPane = null;
 
         JOptionPane.showMessageDialog(rootPane, "Campos limpos com sucesso !");
@@ -255,7 +255,7 @@ InfoCliDAO infoCliDAO = new InfoCliDAO();
         infoCli.setEndereco(jtf_endereco.getText());
         infoCli.setTelefone(jtf_telefone.getText());
         
-        infoCliDAO.getConnection();
+        //infoCliDAO.getConnection();
         infoCliDAO.addInfoCli(infoCli);
         
     }
@@ -278,10 +278,10 @@ InfoCliDAO infoCliDAO = new InfoCliDAO();
 
     private void updateInfoCli() throws SQLException {
         
-        infoCli.setNome_clinica(jtf_nome.getText());
-        infoCli.setCnpj(jtf_cnpj.getText());
-        infoCli.setEndereco(jtf_endereco.getText());
-        infoCli.setTelefone(jtf_telefone.getText());
+        infoCli.setNome_clinica(jtf_nome2.getText());
+        infoCli.setCnpj(jtf_cnpj2.getText());
+        infoCli.setEndereco(jtf_endereco2.getText());
+        infoCli.setTelefone(jtf_telefone2.getText());
         infoCli.setId(1);
         
         //infoCliDAO.getConnection();

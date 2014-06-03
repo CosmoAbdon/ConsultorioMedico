@@ -43,9 +43,19 @@ public class SecMedicos extends javax.swing.JFrame {
 
         jb_altMedicos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jb_altMedicos.setText("Altera dados Médicos");
+        jb_altMedicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_altMedicosActionPerformed(evt);
+            }
+        });
 
         jb_searchMedicos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jb_searchMedicos.setText("Buscar Médicos");
+        jb_searchMedicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_searchMedicosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,7 +64,7 @@ public class SecMedicos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jb_cadMedicos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jb_altMedicos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                    .addComponent(jb_altMedicos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                     .addComponent(jb_searchMedicos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -63,7 +73,7 @@ public class SecMedicos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(jb_cadMedicos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jb_altMedicos)
                 .addGap(64, 64, 64)
                 .addComponent(jb_searchMedicos)
@@ -71,13 +81,24 @@ public class SecMedicos extends javax.swing.JFrame {
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-526)/2, (screenSize.height-394)/2, 526, 394);
+        setBounds((screenSize.width-527)/2, (screenSize.height-395)/2, 527, 395);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_cadMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cadMedicosActionPerformed
         // TODO add your handling code here:
         new SecCadastroMedicosModal(this, rootPaneCheckingEnabled).show();
     }//GEN-LAST:event_jb_cadMedicosActionPerformed
+
+    private void jb_altMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_altMedicosActionPerformed
+        // TODO add your handling code here:
+        new SecAlterarMedicosModal(this, rootPaneCheckingEnabled).show();
+    }//GEN-LAST:event_jb_altMedicosActionPerformed
+
+    private void jb_searchMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_searchMedicosActionPerformed
+        
+        // TODO add your handling code here:
+        new SecBuscaMedicos(this, rootPaneCheckingEnabled).show();
+    }//GEN-LAST:event_jb_searchMedicosActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,19 +4,29 @@
  */
 package entidades;
 
+import frames.SwingColumn;
+
 /**
  *
  * @author zEveerY
  */
 public class Paciente {
     
+    @SwingColumn (description="I.D")
     private Integer id;
+    @SwingColumn (description="Nome")
     private String nome;
+    @SwingColumn (description="Telefone")
     private String telefone;
+    @SwingColumn (description="C.P.F")
     private String cpf;
+    @SwingColumn (description="R.G")
     private String rg;
+    @SwingColumn (description="Endereço")
     private String endereco;
+    @SwingColumn (description="Sexo")
     private String sexo;
+    @SwingColumn (description="Convenio")
     private String convenio;
 
     public Paciente() {
@@ -87,6 +97,9 @@ public class Paciente {
         this.convenio = convenio;
     }
     
-    
+        @Override
+    public String toString() {
+        return nome;
+    }
     
 }

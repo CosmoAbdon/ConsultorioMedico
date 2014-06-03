@@ -11,17 +11,20 @@ import frames.SwingColumn;
  * @author zEveerY
  */
 public class Medicos {
-    // Banco de Dados Modificado
-    // De : 'int crm' Para : 'varchar crm'
+    
+    @SwingColumn (description="I.D")
     private Integer id;
-    @SwingColumn (description="CRM")
+    @SwingColumn (description="C.R.M")
     private String crm;
-    @SwingColumn (description="NOME")
+    @SwingColumn (description="Nome")
     private String nome_medico;
-    private String cpf;
-    @SwingColumn (description="RG")
+    @SwingColumn (description="R.G")
     private String rg;
+    @SwingColumn (description="C.P.F")
+    private String cpf;
+    @SwingColumn (description="Telefone")
     private String telefone;
+    @SwingColumn (description="Sexo")
     private String sexo;
     private String senha_acesso;
     private String lvl_key;
@@ -102,6 +105,9 @@ public class Medicos {
         this.senha_acesso = senha_acesso;
     }
     
-    
+        @Override
+    public String toString() {
+        return nome_medico;
+    }
     
 }

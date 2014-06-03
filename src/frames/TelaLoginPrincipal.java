@@ -6,17 +6,20 @@ package frames;
 /**
  *
  * @author zEveerY
+ * @serial Um bocado de teste
  */
 public class TelaLoginPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaLoginPrincipal
-     */
+     */ 
     public TelaLoginPrincipal() {
         initComponents();
         
     }
 
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +36,7 @@ public class TelaLoginPrincipal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Redirecionamento de Login");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);

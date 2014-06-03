@@ -4,6 +4,7 @@
  */
 package entidades;
 
+import frames.SwingColumn;
 import java.sql.Date;
 import java.sql.Time;
 
@@ -14,10 +15,15 @@ import java.sql.Time;
 public class Consultas {
     
     private Integer id;
-    private Integer id_med;
-    private Integer id_pac;
-    private Date data;
-    private Time hora;
+    @SwingColumn (description="Médico")
+    private String nome_med;
+    @SwingColumn (description="Paciente")
+    private String nome_pac;
+    @SwingColumn (description="Data")
+    private String data;
+    @SwingColumn (description="Hora")
+    private String hora;
+    @SwingColumn (description="Ficha Médica")
     private String ficha_medica;
 
     public Consultas() {
@@ -31,35 +37,35 @@ public class Consultas {
         this.id = id;
     }
 
-    public Integer getId_med() {
-        return id_med;
+    public String getNome_med() {
+        return nome_med;
     }
 
-    public void setId_med(Integer id_med) {
-        this.id_med = id_med;
+    public void setNome_med(String nome_med) {
+        this.nome_med = nome_med;
     }
 
-    public Integer getId_pac() {
-        return id_pac;
+    public String getNome_pac() {
+        return nome_pac;
     }
 
-    public void setId_pac(Integer id_pac) {
-        this.id_pac = id_pac;
+    public void setNome_pac(String nome_pac) {
+        this.nome_pac = nome_pac;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

@@ -37,6 +37,13 @@ public class MyTableModel extends DefaultTableModel {
         }
     }
 
+    boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+    
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit [columnIndex];
+    }
 
     private void startAddTheColumns() throws NoSuchMethodException, InstantiationException, IllegalAccessException {
         // Here is The Reference Class !

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Convenios" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="35f6ce21-7256-4dd8-968d-d8f1cd17ee7a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#1E90FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE0FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Tabela" uuid="0a17c1d5-9100-4712-b5b9-a950dbf84d8e">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     convenio.`id` AS convenio_id,
+     convenio.`nome` AS convenio_nome,
+     convenio.`telefone` AS convenio_telefone,
+     convenio.`endereco` AS convenio_endereco,
+     convenio.`cnpj` AS convenio_cnpj,
+     planos_convenios.`id` AS planos_convenios_id,
+     planos_convenios.`planos` AS planos_convenios_planos,
+     planos_convenios.`preco` AS planos_convenios_preco,
+     planos_convenios.`gravidade` AS planos_convenios_gravidade
+FROM
+     `convenio` convenio INNER JOIN `planos_convenios` planos_convenios ON convenio.`id` = planos_convenios.`id`]]>
+		</queryString>
+		<field name="convenio_nome" class="java.lang.String"/>
+		<field name="convenio_telefone" class="java.lang.String"/>
+		<field name="convenio_endereco" class="java.lang.String"/>
+		<field name="convenio_cnpj" class="java.lang.String"/>
+		<field name="planos_convenios_planos" class="java.lang.String"/>
+		<field name="planos_convenios_preco" class="java.lang.Double"/>
+		<field name="planos_convenios_gravidade" class="java.lang.String"/>
+		<group name="convenio_nome">
+			<groupExpression><![CDATA[$F{convenio_nome}]]></groupExpression>
+		</group>
+		<group name="convenio_telefone">
+			<groupExpression><![CDATA[$F{convenio_telefone}]]></groupExpression>
+		</group>
+		<group name="convenio_endereco">
+			<groupExpression><![CDATA[$F{convenio_endereco}]]></groupExpression>
+		</group>
+		<group name="convenio_cnpj">
+			<groupExpression><![CDATA[$F{convenio_cnpj}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     planos_convenios.`planos` AS planos_convenios_planos,
+     planos_convenios.`preco` AS planos_convenios_preco,
+     planos_convenios.`gravidade` AS planos_convenios_gravidade,
+     convenio.`nome` AS convenio_nome,
+     convenio.`telefone` AS convenio_telefone,
+     convenio.`endereco` AS convenio_endereco,
+     convenio.`cnpj` AS convenio_cnpj,
+     info_cli.`nome_clinica` AS info_cli_nome_clinica,
+     info_cli.`cnpj` AS info_cli_cnpj,
+     info_cli.`endereco` AS info_cli_endereco,
+     info_cli.`telefone` AS info_cli_telefone
+FROM
+     `convenio` convenio INNER JOIN `planos_convenios` planos_convenios ON convenio.`id` = planos_convenios.`id`,
+     `info_cli` info_cli]]>
+	</queryString>
+	<field name="planos_convenios_planos" class="java.lang.String"/>
+	<field name="planos_convenios_preco" class="java.lang.Double"/>
+	<field name="planos_convenios_gravidade" class="java.lang.String"/>
+	<field name="convenio_nome" class="java.lang.String"/>
+	<field name="convenio_telefone" class="java.lang.String"/>
+	<field name="convenio_endereco" class="java.lang.String"/>
+	<field name="convenio_cnpj" class="java.lang.String"/>
+	<field name="info_cli_nome_clinica" class="java.lang.String"/>
+	<field name="info_cli_cnpj" class="java.lang.String"/>
+	<field name="info_cli_endereco" class="java.lang.String"/>
+	<field name="info_cli_telefone" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="216" y="10" width="340" height="29" uuid="16ac4c4c-8d71-4af2-8940-1f2401491187"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Relatório de Pacientes Cadastrados]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="12" y="48" width="218" height="31" forecolor="#009900" uuid="2d8faf31-dddd-4eb3-b065-e57b1034821a"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{info_cli_nome_clinica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="59" width="100" height="20" uuid="6ad1308b-e1aa-4981-a388-23e3b377f87d"/>
+				<textFieldExpression><![CDATA[$F{info_cli_cnpj}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="314" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="0" y="17" width="802" height="128" uuid="0eb4d16d-196c-42f6-9a0e-fd706fd258cc"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Tabela" uuid="6a412c96-64d3-425b-9d68-3c8e25cd3b4b">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="189" uuid="b6e27623-2483-4821-8897-c9480b90a15c">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="112" height="30" uuid="5958d13f-8daa-4d1e-bf1b-69bd1c3cdbfe"/>
+								<text><![CDATA[Nome :]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="164" height="20" uuid="cd5126a3-900a-4415-a152-a7864a1faaa7"/>
+								<textFieldExpression><![CDATA[$F{convenio_nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="213" uuid="eeb0a5e4-02af-4150-824e-218bf9a105c4">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="119" height="30" uuid="eccab910-3a80-4467-a370-7729d05dab1b"/>
+								<text><![CDATA[Telefone :]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="188" height="20" uuid="06e81107-9c5a-404d-b09f-a4adf274e741"/>
+								<textFieldExpression><![CDATA[$F{convenio_telefone}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="206" uuid="1d761021-1240-4d58-abe1-4c8561f3e8c2">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="134" height="30" uuid="119edb8c-f8e6-4f2d-b7d8-960ce59443c1"/>
+								<text><![CDATA[Endereço :]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="187" height="20" uuid="d0380026-b180-4387-b293-c9042822afeb"/>
+								<textFieldExpression><![CDATA[$F{convenio_endereco}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="193" uuid="dd120f0f-5d07-489c-9235-9a385cae9772">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="144" height="30" uuid="1a3bb450-0148-4d11-a217-378cf3194f95"/>
+								<text><![CDATA[C.N.P.J :]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="175" height="20" uuid="4c521c0e-3ec5-4848-80bc-d6284640aa95"/>
+								<textFieldExpression><![CDATA[$F{convenio_cnpj}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table 4" style="table 4" x="0" y="160" width="802" height="137" uuid="dd496725-4772-47c2-92c8-8dce2b4d5662"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Tabela" uuid="1641adb1-8b2a-4294-bc28-43334a22d257">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="204" uuid="855177f9-a85e-4d88-be6f-dd4397731f2a">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="38" y="0" width="130" height="30" uuid="0cb0c900-c016-4f25-8c48-28d1f3377bcf"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Nome Convênio :]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="38" y="0" width="130" height="20" uuid="3c1f4db5-4bab-4aad-9715-4bd76035cd47"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{convenio_nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="203" uuid="ddc528cf-8846-41e5-8ed1-e8d648da8458">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="24" y="0" width="145" height="30" uuid="9da16fa5-7761-4f7a-aa51-a7e3df747499"/>
+								<textElement textAlignment="Center" verticalAlignment="Top"/>
+								<text><![CDATA[Planos :]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="24" y="0" width="145" height="20" uuid="6535618f-bc04-4fcb-b4c4-ae8fad967885"/>
+								<textElement textAlignment="Center" verticalAlignment="Top"/>
+								<textFieldExpression><![CDATA[$F{planos_convenios_planos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="193" uuid="f3e7f56b-6fc0-4d6f-b929-5dc5178e17c0">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="16" y="0" width="163" height="30" uuid="76fa5540-e13c-459a-a028-e4cc0039e22b"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Preço Planos :]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="16" y="0" width="163" height="20" uuid="06f8bcc2-abd4-4fab-9972-11a760cc6938"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{planos_convenios_preco}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="201" uuid="4ff91087-ec0c-4a13-b4c1-ce3fb2ef40e7">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="16" y="0" width="167" height="30" uuid="3f27aed5-b415-46d6-a109-322a94321275"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Gravidade Planos :]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="16" y="0" width="167" height="20" uuid="0c0be7c2-6f17-4c60-bb6a-7e32bb41b313"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{planos_convenios_gravidade}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="68" splitType="Stretch">
+			<textField>
+				<reportElement x="328" y="0" width="129" height="20" forecolor="#00CC00" uuid="f3543178-7d5c-4e87-ab7e-8736d8122c43"/>
+				<textFieldExpression><![CDATA[$F{info_cli_nome_clinica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="27" width="141" height="20" uuid="92d677fa-f507-463c-b246-30daba5084d0"/>
+				<textFieldExpression><![CDATA[$F{info_cli_endereco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="697" y="27" width="100" height="20" uuid="a69f7953-6929-48e6-9fd6-14978b2ef6d8"/>
+				<textFieldExpression><![CDATA[$F{info_cli_telefone}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

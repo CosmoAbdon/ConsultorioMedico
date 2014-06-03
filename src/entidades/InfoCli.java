@@ -59,6 +59,13 @@ public class InfoCli {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString() {
+        return "InfoCli{" + "id=" + id + ", nome_clinica=" + nome_clinica + ", cnpj=" + cnpj + ", endereco=" + endereco + ", telefone=" + telefone + '}';
+    }
     
-    
+
+
+        
 }

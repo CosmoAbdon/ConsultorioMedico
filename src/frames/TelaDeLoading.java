@@ -37,6 +37,7 @@ public Integer a = 0;
         jPanel1 = new javax.swing.JPanel();
         jpb_progresso = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         timer1.setDelay(100L);
         timer1.addTimerListener(new org.netbeans.examples.lib.timerbean.TimerListener() {
@@ -51,50 +52,39 @@ public Integer a = 0;
 
         jPanel1.setBackground(new java.awt.Color(120, 168, 168));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.setLayout(null);
 
-        jpb_progresso.setBackground(new java.awt.Color(0, 0, 0));
+        jpb_progresso.setBackground(new java.awt.Color(51, 153, 255));
         jpb_progresso.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jpb_progresso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jpb_progresso.setStringPainted(true);
+        jPanel1.add(jpb_progresso);
+        jpb_progresso.setBounds(20, 220, 714, 25);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Sistema Integrado para Consultórios Médicos");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(140, 0, 486, 28);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpb_progresso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(141, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(107, 107, 107))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(62, 62, 62)
-                .addComponent(jpb_progresso, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Untitled 1.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 740, 440);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-740)/2, (screenSize.height-220)/2, 740, 220);
+        setBounds((screenSize.width-740)/2, (screenSize.height-439)/2, 740, 439);
     }// </editor-fold>//GEN-END:initComponents
 
     private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
@@ -146,6 +136,7 @@ public Integer a = 0;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jpb_progresso;
     private org.netbeans.examples.lib.timerbean.Timer timer1;

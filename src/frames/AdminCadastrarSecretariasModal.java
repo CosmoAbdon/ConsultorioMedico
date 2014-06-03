@@ -94,7 +94,6 @@ TelaAdministrador telaAdministrador = new TelaAdministrador();
         jl_endereco1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jl_endereco1.setText("Sexo :");
 
-        jpf_senha.setText("jPasswordField1");
         jpf_senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jpf_senhaActionPerformed(evt);
@@ -304,6 +303,7 @@ TelaAdministrador telaAdministrador = new TelaAdministrador();
         jtf_endereco.setText("");
         jtf_rg.setText("");
         jtf_telefone.setText("");
+        jpf_senha.setText("");
 
         JOptionPane.showMessageDialog(null, "Campos limpos com sucesso !");
     }//GEN-LAST:event_jb_clearActionPerformed
@@ -365,10 +365,18 @@ TelaAdministrador telaAdministrador = new TelaAdministrador();
         secretaria.setSexo(jcb_sexo.getSelectedItem().toString());
         secretaria.setSenha_acesso(jpf_senha.getText());
         
-        secretariaDAO.getConnection();
+        //secretariaDAO.getConnection();
         secretariaDAO.addSecretaria(secretaria);
         
         JOptionPane.showMessageDialog(null, "Secretária Cadastrada com sucesso !");
+        
+        jtf_nome.setText("");
+        jtf_cpf.setText("");
+        jtf_endereco.setText("");
+        jtf_rg.setText("");
+        jtf_telefone.setText("");
+        jpf_senha.setText("");
+        
         
     }
 

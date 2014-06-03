@@ -56,6 +56,8 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
         jb_quit = new javax.swing.JButton();
         jl_crm = new javax.swing.JLabel();
         jtf_crm = new javax.swing.JTextField();
+        jl_id = new javax.swing.JLabel();
+        jtf_id = new javax.swing.JTextField();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -68,7 +70,7 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         jl_cadastrar1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jl_cadastrar1.setText("Cadastrar Médicos");
+        jl_cadastrar1.setText("Alterar Médicos");
 
         jl_nome1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jl_nome1.setText("Nome Médico :");
@@ -125,6 +127,23 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
         jl_crm.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jl_crm.setText("C.R.M :");
 
+        jtf_crm.setToolTipText("Campo Obrigatório");
+        jtf_crm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_crmActionPerformed(evt);
+            }
+        });
+
+        jl_id.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jl_id.setText("I.D :");
+
+        jtf_id.setToolTipText("Campo Obrigatório");
+        jtf_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_idActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -137,14 +156,15 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jl_crm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jl_nome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jl_cpf1)
-                    .addComponent(jl_rg1)
-                    .addComponent(jl_telefone1)
-                    .addComponent(jl_endereco3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jl_endereco4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jl_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_crm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_nome1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_cpf1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_rg1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_telefone1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_endereco3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_endereco4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(49, 49, 49)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpf_senha1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
@@ -153,8 +173,9 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
                     .addComponent(jtf_cpf1)
                     .addComponent(jtf_rg1)
                     .addComponent(jtf_telefone1)
-                    .addComponent(jtf_crm))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                    .addComponent(jtf_crm)
+                    .addComponent(jtf_id))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jb_save, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -167,13 +188,23 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jb_quit)
                     .addComponent(jl_cadastrar1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_crm)
-                    .addComponent(jtf_crm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                        .addComponent(jb_save)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addComponent(jb_clear)
+                        .addGap(85, 85, 85))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jl_id)
+                            .addComponent(jtf_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jl_crm)
+                            .addComponent(jtf_crm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jl_nome1)
                             .addComponent(jtf_nome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,21 +220,15 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jl_telefone1)
                             .addComponent(jtf_telefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jb_save)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jcb_sexo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jl_endereco3))
-                    .addComponent(jb_clear))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jpf_senha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_endereco4))
-                .addGap(55, 55, 55))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jcb_sexo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_endereco3))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jpf_senha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_endereco4))
+                        .addGap(40, 40, 40))))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -234,7 +259,8 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-810)/2, (screenSize.height-529)/2, 810, 529);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -245,10 +271,25 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
         dispose();
     }//GEN-LAST:event_closeDialog
 
-    private void jpf_senha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpf_senha1ActionPerformed
+    private void jb_quitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_quitActionPerformed
         // TODO add your handling code here:
+        //telaAdministrador.valida(false);
+        this.dispose();
+    }//GEN-LAST:event_jb_quitActionPerformed
+
+    private void jb_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clearActionPerformed
+        // TODO add your handling code here:
+        jtf_id.setText("");
+        jtf_nome1.setText("");
+        jtf_cpf1.setText("");
+        jtf_crm.setText("");
+        jtf_rg1.setText("");
+        jtf_telefone1.setText("");
+        jcb_sexo1.setSelectedItem("Masculino");
         jpf_senha1.setText("");
-    }//GEN-LAST:event_jpf_senha1ActionPerformed
+
+        JOptionPane.showMessageDialog(null, "Campos limpos com sucesso !");
+    }//GEN-LAST:event_jb_clearActionPerformed
 
     private void jb_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_saveActionPerformed
         try {
@@ -256,24 +297,28 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
         } catch (SQLException ex) {
             Logger.getLogger(AdminCadastrarSecretariasModal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jb_saveActionPerformed
-
-    private void jb_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clearActionPerformed
-        // TODO add your handling code here:
+        jtf_id.setText("");
         jtf_nome1.setText("");
         jtf_cpf1.setText("");
         jtf_crm.setText("");
         jtf_rg1.setText("");
         jtf_telefone1.setText("");
+        jcb_sexo1.setSelectedItem("Masculino");
+        jpf_senha1.setText("");
+    }//GEN-LAST:event_jb_saveActionPerformed
 
-        JOptionPane.showMessageDialog(null, "Campos limpos com sucesso !");
-    }//GEN-LAST:event_jb_clearActionPerformed
-
-    private void jb_quitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_quitActionPerformed
+    private void jpf_senha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpf_senha1ActionPerformed
         // TODO add your handling code here:
-        //telaAdministrador.valida(false);
-        this.dispose();
-    }//GEN-LAST:event_jb_quitActionPerformed
+        jpf_senha1.setText("");
+    }//GEN-LAST:event_jpf_senha1ActionPerformed
+
+    private void jtf_crmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_crmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_crmActionPerformed
+
+    private void jtf_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_idActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,18 +348,21 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
     private javax.swing.JLabel jl_crm;
     private javax.swing.JLabel jl_endereco3;
     private javax.swing.JLabel jl_endereco4;
+    private javax.swing.JLabel jl_id;
     private javax.swing.JLabel jl_nome1;
     private javax.swing.JLabel jl_rg1;
     private javax.swing.JLabel jl_telefone1;
     private javax.swing.JPasswordField jpf_senha1;
     private javax.swing.JTextField jtf_cpf1;
     private javax.swing.JTextField jtf_crm;
+    private javax.swing.JTextField jtf_id;
     private javax.swing.JTextField jtf_nome1;
     private javax.swing.JTextField jtf_rg1;
     private javax.swing.JTextField jtf_telefone1;
     // End of variables declaration//GEN-END:variables
 
     private void cadastrar() throws SQLException {
+        medicos.setId(Integer.parseInt(jtf_id.getText()));
         medicos.setCrm(jtf_crm.getText());
         medicos.setNome_medico(jtf_nome1.getText());
         medicos.setCpf(jtf_cpf1.getText());
@@ -323,10 +371,17 @@ public class SecAlterarMedicosModal extends java.awt.Dialog {
         medicos.setSexo(jcb_sexo1.getSelectedItem().toString());
         medicos.setSenha_acesso(jpf_senha1.getText());
         
-        medicosDAO.getConnection();
-        medicosDAO.updateMedicos(medicos);
+        if(jtf_crm.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Campo Obrigatório. \n Operação abortada !");
+        }else
+        {
+            //medicosDAO.getConnection();
+            medicosDAO.updateMedicos(medicos);
+            JOptionPane.showMessageDialog(null, "Médico Atualizado com sucesso !");
+        }
         
-        JOptionPane.showMessageDialog(null, "Secretária Atualizada com sucesso !");
+        
         
     }
 

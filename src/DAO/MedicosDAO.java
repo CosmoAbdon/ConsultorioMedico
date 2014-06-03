@@ -67,7 +67,23 @@ public class MedicosDAO extends GenericDAO
     {
         List<Medicos> medicos = new LinkedList<Medicos>();
         
-        ResultSet rs = executeQuery("SELECT * FROM medicos nome like ?", nome);
+        //ResultSet rs = executeQuery("SELECT * FROM medicos WHERE nome_medico like ?", "%"+nome);
+        ResultSet rs = executeQuery("SELECT * FROM medicos WHERE nome_medico like ?",nome+"%");
+                
+                while(rs.next())
+                {
+                medicos.add(populateMedico(rs));
+                }
+                rs.close();
+        return medicos;
+    }
+    
+    public List<Medicos> getAllMedicosPorCrm(String crm) throws SQLException 
+    {
+        List<Medicos> medicos = new LinkedList<Medicos>();
+        
+        //ResultSet rs = executeQuery("SELECT * FROM medicos WHERE nome_medico like ?", "%"+nome);
+        ResultSet rs = executeQuery("SELECT * FROM medicos WHERE crm like ?",crm+"%");
                 
                 while(rs.next())
                 {
@@ -87,8 +103,8 @@ public class MedicosDAO extends GenericDAO
     
     public void updateMedicos(Medicos medicos) throws SQLException
     {
-        String query = "UPDATE medicos SET crm = ?, nome_medico = ?, cpf = ?, rg = ?, telefone = ?, sexo = ?, senha_acesso = ? WHERE crm =?";
-        executeComand(query, medicos.getCrm(), medicos.getNome_medico(), medicos.getCpf(), medicos.getRg(), medicos.getTelefone(), medicos.getSexo(), medicos.getSenha_acesso(), medicos.getCrm());        
+        String query = "UPDATE medicos SET crm = ?, nome_medico = ?, cpf = ?, rg = ?, telefone = ?, sexo = ?, senha_acesso = ? WHERE id =?";
+        executeComand(query, medicos.getCrm(), medicos.getNome_medico(), medicos.getCpf(), medicos.getRg(), medicos.getTelefone(), medicos.getSexo(), medicos.getSenha_acesso(), medicos.getId());        
         
     }
     
@@ -101,7 +117,15 @@ public class MedicosDAO extends GenericDAO
 
     private Medicos populateMedico(ResultSet rs) throws SQLException {
         Medicos retorno = new Medicos();
-        retorno.setNome_medico(rs.getString(rs.getString("nome_medico")));
+        
+        retorno.setId(Integer.parseInt(rs.getString("id")));
+        retorno.setNome_medico(rs.getString("nome_medico"));
+        retorno.setCrm(rs.getString("crm"));
+        retorno.setRg(rs.getString("rg"));
+        retorno.setCpf(rs.getString("cpf"));
+        retorno.setTelefone(rs.getString("telefone"));
+        retorno.setSexo(rs.getString("sexo"));
+        
         
         return retorno;
         

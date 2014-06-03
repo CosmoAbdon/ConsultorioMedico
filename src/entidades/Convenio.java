@@ -4,16 +4,22 @@
  */
 package entidades;
 
+import frames.SwingColumn;
+
 /**
  *
  * @author zEveerY
  */
 public class Convenio {
-    
+    @SwingColumn (description="I.D")
     private Integer id ;
+    @SwingColumn (description="Nome")
     private String nome;
+    @SwingColumn (description="Telefone")
     private String telefone;
+    @SwingColumn (description="Endereço")
     private String endereco;
+    @SwingColumn (description="C.N.P.J")
     private String cnpj;
 
     public Convenio() {
@@ -57,6 +63,11 @@ public class Convenio {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
     
     
